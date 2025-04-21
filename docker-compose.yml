@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  rain-sensor-mqtt-listener:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rain-sensor-mqtt-listener
+    ports:
+      - "1883:1883" 
