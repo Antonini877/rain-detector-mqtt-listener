@@ -1,25 +1,39 @@
 import yaml
 from pathlib import Path
+from typing import Any, Optional, Dict
+import logging
+
+logging.basicConfig(level=logging.WARNING, format="%(asctime)s - %(levelname)s - %(message)s")
+logger = logging.getLogger(__name__)
 
 class YamlReader:
-    def __init__(self, filepath):
-        self.filepath = filepath
-        self.data = None
+    """
+    A utility class for reading and accessing data from YAML files.
+    """
 
-    def load(self):
-        """Loads YAML data from the file into memory."""
+    def __init__(self, filepath: Path):
+        """
+        Initializes the YamlReader instance.
+
+        :param filepath: The path to the YAML file to be read.
+        """
+        self.filepath: Path = filepath
+        self.data: Optional[Dict[str, Any]] = None
+
+    def load(self) -> Optional[Dict[str, Any]]:
+        """
+        Loads YAML data from the file into memory.
+
+        :return: A dictionary containing the YAML data, or None if an error occurs.
+        """
         try:
+            logger.info("reading YAML file...")
             with open(self.filepath, 'r', encoding='utf-8') as file:
                 self.data = yaml.safe_load(file)
+                logger.info(f"YAML file loaded successfully: {self.filepath}")
             return self.data
         except FileNotFoundError:
-            print(f"File not found: {self.filepath}")
+            logger.error(f"File not found: {self.filepath}")
         except yaml.YAMLError as e:
-            print(f"YAML parsing error: {e}")
+            logger.error(f"YAML parsing error: {e}")
         return None
-
-    def get(self, key, default=None):
-        """Retrieves a value by key from the loaded data."""
-        if self.data is None:
-            self.load()
-        return self.data.get(key, default) if self.data else default
