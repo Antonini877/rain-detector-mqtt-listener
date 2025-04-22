@@ -2,13 +2,13 @@
 This project is a Rain Sensor MQTT Listener that listens to MQTT messages from a rain sensor, processes the data, and sends notifications via Telegram. The application is containerized using Docker and orchestrated with Docker Compose for easy deployment.
 
 ### Features
-*MQTT Listener*: Subscribes to a specific MQTT topic and processes incoming messages.
-*Telegram Notifications*: Sends alerts to a Telegram chat when rain is detected.
-*Environment Configuration*: Uses .env files for secure and flexible configuration.
-*Containerized Deployment*: Runs seamlessly in Docker containers with Docker Compose.
+**MQTT Listener**: Subscribes to a specific MQTT topic and processes incoming messages.
+**Telegram Notifications**: Sends alerts to a Telegram chat when rain is detected.
+**Environment Configuration**: Uses .env files for secure and flexible configuration.
+**Containerized Deployment**: Runs seamlessly in Docker containers with Docker Compose.
 ### Requirements
-*Docker*: Ensure Docker is installed on your system.
-*Docker Compose*: Required for orchestrating the containers.
+**Docker**: Ensure Docker is installed on your system.
+**Docker Compose**: Required for orchestrating the containers.
 ### Environment Variables
 The application uses a .env file 
 
@@ -37,6 +37,7 @@ Logs are displayed in the console and provide information about:
 - Received messages
 - Telegram notification status
 ### Extending the Project
+- Cloud deployment
 - Add support for other notification services (e.g., email, SMS).
 - Integrate with a database to store received messages.
 - Add more advanced message filtering or processing.
