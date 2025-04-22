@@ -1,4 +1,4 @@
-from utils.mqtt import MQTTClient
+from services.mqtt import MQTTClient
 import logging
 from dotenv import load_dotenv
 from utils.callback import handle_message

@@ -1,0 +1,7 @@
+app:
+  telegram:
+    base_url: https://api.telegram.org/bot{token}/sendMessage
+    message: |
+      [ALERTA] - O sistema de alerta detectou chuva no escritório do Antonio, 
+      por favor fechem as janelas e portas 🌧️ ☔
+
